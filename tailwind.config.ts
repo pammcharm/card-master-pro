@@ -14,7 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
+        sans: ['Space Grotesk', 'Inter', 'system-ui', 'sans-serif'],
+        display: ['Space Grotesk', 'sans-serif'],
         mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
@@ -76,8 +77,9 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       boxShadow: {
-        'glow': '0 0 20px hsl(199 89% 48% / 0.3)',
-        'glow-lg': '0 0 40px hsl(199 89% 48% / 0.4)',
+        'glow': '0 0 30px hsl(175 80% 45% / 0.35)',
+        'glow-lg': '0 0 50px hsl(175 80% 45% / 0.45)',
+        'glow-success': '0 0 25px hsl(160 84% 39% / 0.4)',
       },
       keyframes: {
         "accordion-down": {

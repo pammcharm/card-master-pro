@@ -41,7 +41,7 @@ const actions: QuickAction[] = [
 ];
 
 interface QuickActionsProps {
-  onAction: (actionId: string) => void;
+  onAction?: (actionId: string) => void;
 }
 
 export function QuickActions({ onAction }: QuickActionsProps) {
@@ -57,7 +57,7 @@ export function QuickActions({ onAction }: QuickActionsProps) {
           return (
             <button
               key={action.id}
-              onClick={() => onAction(action.id)}
+              onClick={() => onAction?.(action.id)}
               className={cn(
                 "p-4 rounded-xl border text-left transition-all duration-200 group",
                 isPrimary 
