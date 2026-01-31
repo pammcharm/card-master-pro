@@ -1,81 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 /* SAGS - Smart Automatic Generation System Design System
-   Dark Mode Tech Aesthetic with Electric Blue Accents
+   Dark Mode Tech Aesthetic with Vibrant Cyan/Teal Accents
    All colors in HSL format
 */
 
 @layer base {
   :root {
-    /* Dark theme by default - tech aesthetic */
-    --background: 222 47% 6%;
+    /* Deep dark background with blue undertone */
+    --background: 230 25% 7%;
     --foreground: 210 40% 98%;
 
-    --card: 222 47% 8%;
+    --card: 230 25% 10%;
     --card-foreground: 210 40% 98%;
 
-    --popover: 222 47% 10%;
+    --popover: 230 25% 12%;
     --popover-foreground: 210 40% 98%;
 
-    /* Electric Blue primary */
-    --primary: 199 89% 48%;
-    --primary-foreground: 222 47% 6%;
+    /* Vibrant Cyan/Teal primary */
+    --primary: 175 80% 45%;
+    --primary-foreground: 230 25% 7%;
 
-    --secondary: 222 47% 14%;
+    --secondary: 230 25% 15%;
     --secondary-foreground: 210 40% 98%;
 
-    --muted: 222 47% 12%;
-    --muted-foreground: 215 20% 55%;
+    --muted: 230 25% 14%;
+    --muted-foreground: 220 15% 55%;
 
-    --accent: 199 89% 48%;
-    --accent-foreground: 222 47% 6%;
+    --accent: 175 80% 45%;
+    --accent-foreground: 230 25% 7%;
 
     --destructive: 0 72% 51%;
     --destructive-foreground: 210 40% 98%;
 
     /* Success - for generated cards */
-    --success: 142 76% 36%;
+    --success: 160 84% 39%;
     --success-foreground: 210 40% 98%;
 
     /* Warning - for pending/skipped */
-    --warning: 38 92% 50%;
-    --warning-foreground: 222 47% 6%;
+    --warning: 45 93% 47%;
+    --warning-foreground: 230 25% 7%;
 
-    --border: 222 47% 16%;
-    --input: 222 47% 14%;
-    --ring: 199 89% 48%;
+    --border: 230 25% 18%;
+    --input: 230 25% 15%;
+    --ring: 175 80% 45%;
 
     --radius: 0.75rem;
 
     /* Sidebar - darker variant */
-    --sidebar-background: 222 47% 5%;
+    --sidebar-background: 230 25% 5%;
     --sidebar-foreground: 210 40% 90%;
-    --sidebar-primary: 199 89% 48%;
-    --sidebar-primary-foreground: 222 47% 6%;
-    --sidebar-accent: 222 47% 12%;
+    --sidebar-primary: 175 80% 45%;
+    --sidebar-primary-foreground: 230 25% 7%;
+    --sidebar-accent: 230 25% 12%;
     --sidebar-accent-foreground: 210 40% 98%;
-    --sidebar-border: 222 47% 14%;
-    --sidebar-ring: 199 89% 48%;
+    --sidebar-border: 230 25% 15%;
+    --sidebar-ring: 175 80% 45%;
+
+    /* Chart colors */
+    --chart-1: 175 80% 45%;
+    --chart-2: 160 84% 39%;
+    --chart-3: 45 93% 47%;
+    --chart-4: 280 70% 50%;
+    --chart-5: 0 72% 51%;
 
     /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(199 89% 48%), hsl(199 89% 38%));
-    --gradient-card: linear-gradient(180deg, hsl(222 47% 10%), hsl(222 47% 8%));
-    --gradient-glow: radial-gradient(ellipse at center, hsl(199 89% 48% / 0.15), transparent 70%);
+    --gradient-primary: linear-gradient(135deg, hsl(175 80% 50%), hsl(175 80% 35%));
+    --gradient-card: linear-gradient(180deg, hsl(230 25% 12%), hsl(230 25% 8%));
+    --gradient-glow: radial-gradient(ellipse at center, hsl(175 80% 45% / 0.15), transparent 70%);
+    --gradient-hero: linear-gradient(135deg, hsl(230 25% 10%) 0%, hsl(230 30% 5%) 50%, hsl(175 30% 8%) 100%);
 
     /* Shadows */
-    --shadow-sm: 0 2px 8px hsl(222 47% 4% / 0.3);
-    --shadow-md: 0 4px 16px hsl(222 47% 4% / 0.4);
-    --shadow-lg: 0 8px 32px hsl(222 47% 4% / 0.5);
-    --shadow-glow: 0 0 20px hsl(199 89% 48% / 0.3);
+    --shadow-sm: 0 2px 8px hsl(230 25% 4% / 0.3);
+    --shadow-md: 0 4px 16px hsl(230 25% 4% / 0.4);
+    --shadow-lg: 0 8px 32px hsl(230 25% 4% / 0.5);
+    --shadow-glow: 0 0 30px hsl(175 80% 45% / 0.35);
   }
 
   .dark {
-    /* Already dark by default, but keeping for consistency */
-    --background: 222 47% 6%;
+    --background: 230 25% 7%;
     --foreground: 210 40% 98%;
   }
 }
@@ -86,7 +93,7 @@
   }
 
   html {
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Space Grotesk', 'Inter', system-ui, sans-serif;
   }
 
   body {
@@ -118,23 +125,34 @@
   /* Text styles */
   .text-gradient {
     @apply bg-clip-text text-transparent;
-    background-image: linear-gradient(135deg, hsl(199 89% 58%), hsl(199 89% 48%));
+    background-image: linear-gradient(135deg, hsl(175 80% 55%), hsl(175 80% 40%));
+  }
+
+  .text-gradient-hero {
+    @apply bg-clip-text text-transparent;
+    background-image: linear-gradient(135deg, hsl(175 80% 60%), hsl(160 84% 45%), hsl(175 80% 50%));
   }
 
   /* Glow effects */
   .glow-primary {
-    box-shadow: 0 0 20px hsl(199 89% 48% / 0.4);
+    box-shadow: 0 0 30px hsl(175 80% 45% / 0.5);
   }
 
   .glow-success {
-    box-shadow: 0 0 20px hsl(142 76% 36% / 0.4);
+    box-shadow: 0 0 25px hsl(160 84% 39% / 0.5);
   }
 
   /* Glass effect for cards */
   .glass {
     @apply backdrop-blur-xl;
-    background: hsl(222 47% 8% / 0.8);
-    border: 1px solid hsl(222 47% 20% / 0.5);
+    background: hsl(230 25% 10% / 0.85);
+    border: 1px solid hsl(230 25% 22% / 0.5);
+  }
+
+  .glass-light {
+    @apply backdrop-blur-lg;
+    background: hsl(230 25% 15% / 0.6);
+    border: 1px solid hsl(175 80% 45% / 0.15);
   }
 
   /* Status indicators */
@@ -157,10 +175,10 @@
 
   @keyframes glow {
     from {
-      box-shadow: 0 0 10px hsl(199 89% 48% / 0.2);
+      box-shadow: 0 0 15px hsl(175 80% 45% / 0.25);
     }
     to {
-      box-shadow: 0 0 25px hsl(199 89% 48% / 0.4);
+      box-shadow: 0 0 35px hsl(175 80% 45% / 0.5);
     }
   }
 
@@ -168,8 +186,47 @@
     animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
   }
 
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
   /* Mono font for IDs and codes */
   .font-mono {
     font-family: 'JetBrains Mono', monospace;
+  }
+
+  .font-display {
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  /* Card hover effect */
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+
+  .card-hover:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px hsl(175 80% 45% / 0.15);
+  }
+
+  /* Hero section background */
+  .hero-bg {
+    background: var(--gradient-hero);
+  }
+
+  .hero-pattern {
+    background-image: 
+      radial-gradient(circle at 20% 80%, hsl(175 80% 45% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(175 80% 45% / 0.05) 0%, transparent 40%),
+      radial-gradient(circle at 40% 40%, hsl(280 70% 50% / 0.03) 0%, transparent 30%);
   }
 }
