@@ -1,3 +1,4 @@
+import { cn } from '@/lib/utils';
 import { Link } from 'react-router-dom';
 import { Logo } from '@/components/Logo';
 import { Button } from '@/components/ui/button';
@@ -13,7 +14,8 @@ import {
   Check,
   Sparkles,
   Palette,
-  FileSpreadsheet
+  FileSpreadsheet,
+  Star
 } from 'lucide-react';
 
 const features = [
@@ -46,6 +48,33 @@ const features = [
     icon: Printer,
     title: 'Print Ready',
     description: 'Export as PNG, JPG, or PDF. Supports batch printing and card printer layouts.',
+  },
+];
+
+const plans = [
+  {
+    name: 'Starter',
+    price: '$29',
+    period: '/month',
+    description: 'For small organizations getting started',
+    features: ['Up to 100 members', '500 cards/month', '3 templates', 'Email support', 'Basic dashboard'],
+    popular: false,
+  },
+  {
+    name: 'Pro',
+    price: '$79',
+    period: '/month',
+    description: 'For growing organizations that need more',
+    features: ['Up to 1,000 members', 'Unlimited cards', '20 templates', 'Priority support', 'Team roles & permissions', 'Bulk import/export', 'API access'],
+    popular: true,
+  },
+  {
+    name: 'Enterprise',
+    price: 'Custom',
+    period: '',
+    description: 'For large organizations with custom needs',
+    features: ['Unlimited members', 'Unlimited everything', 'Custom branding', 'SSO integration', 'Dedicated support', 'SLA guarantee', 'Superadmin portal'],
+    popular: false,
   },
 ];
 
@@ -90,101 +119,47 @@ export default function Landing() {
 
       {/* Hero Section */}
       <section className="pt-32 pb-20 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="space-y-8">
-              <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm">
-                <Sparkles className="w-4 h-4" />
-                Smart Automatic Generation System
-              </div>
-              
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-display">
-                Generate <span className="text-gradient-hero">ID Cards</span> in Seconds
-              </h1>
-              
-              <p className="text-xl text-muted-foreground max-w-xl">
-                The complete solution for schools, companies, and organizations. 
-                Capture photos, design templates, and generate professional ID cards automatically.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                <Button size="lg" className="glow-primary text-lg h-14 px-8" asChild>
-                  <Link to="/dashboard">
-                    Start Free Trial
-                    <ArrowRight className="w-5 h-5 ml-2" />
-                  </Link>
-                </Button>
-                <Button size="lg" variant="outline" className="text-lg h-14 px-8">
-                  Watch Demo
-                </Button>
-              </div>
+        <div className="max-w-7xl mx-auto text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 text-primary text-sm mb-8">
+            <Sparkles className="w-4 h-4" />
+            Smart ID Card Management Platform
+          </div>
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight font-display mb-6">
+            Generate <span className="text-gradient-hero">Professional ID Cards</span><br />in Seconds
+          </h1>
+          
+          <p className="text-xl text-muted-foreground max-w-2xl mx-auto mb-10">
+            The complete solution for schools, companies, and organizations. 
+            Capture photos, design templates, and generate professional ID cards automatically.
+          </p>
+          
+          <div className="flex flex-wrap justify-center gap-4 mb-12">
+            <Button size="lg" className="glow-primary text-lg h-14 px-8" asChild>
+              <Link to="/dashboard">
+                Start Free Trial
+                <ArrowRight className="w-5 h-5 ml-2" />
+              </Link>
+            </Button>
+            <Button size="lg" variant="outline" className="text-lg h-14 px-8">
+              Watch Demo
+            </Button>
+          </div>
 
-              <div className="flex items-center gap-6 pt-4">
-                <div className="flex -space-x-3">
-                  {[...Array(4)].map((_, i) => (
-                    <div 
-                      key={i}
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/60 to-primary/30 border-2 border-background flex items-center justify-center text-xs font-medium"
-                    >
-                      {String.fromCharCode(65 + i)}
-                    </div>
-                  ))}
+          <div className="flex items-center justify-center gap-6">
+            <div className="flex -space-x-3">
+              {[...Array(4)].map((_, i) => (
+                <div 
+                  key={i}
+                  className="w-10 h-10 rounded-full bg-gradient-to-br from-primary/60 to-primary/30 border-2 border-background flex items-center justify-center text-xs font-medium"
+                >
+                  {String.fromCharCode(65 + i)}
                 </div>
-                <div className="text-sm">
-                  <span className="text-foreground font-semibold">500+ organizations</span>
-                  <span className="text-muted-foreground"> trust SAGS</span>
-                </div>
-              </div>
+              ))}
             </div>
-
-            {/* Hero Card Visual */}
-            <div className="relative hidden lg:block">
-              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-transparent blur-3xl" />
-              
-              {/* Main ID Card */}
-              <div className="relative glass-light rounded-2xl p-6 transform rotate-3 hover:rotate-0 transition-transform duration-500 animate-float">
-                <div className="bg-gradient-to-br from-card to-card/80 rounded-xl p-6 border border-border/50 shadow-glow">
-                  <div className="flex gap-4">
-                    <div className="w-24 h-28 rounded-lg bg-gradient-to-br from-primary/30 to-primary/10 flex items-center justify-center">
-                      <Users className="w-10 h-10 text-primary/60" />
-                    </div>
-                    <div className="flex-1 space-y-2">
-                      <div className="h-4 bg-foreground/20 rounded w-3/4" />
-                      <div className="h-3 bg-foreground/10 rounded w-1/2" />
-                      <div className="h-3 bg-foreground/10 rounded w-2/3" />
-                      <div className="mt-4 px-2 py-1 rounded bg-primary/20 text-primary text-xs inline-block">
-                        STUDENT
-                      </div>
-                    </div>
-                  </div>
-                  <div className="mt-4 flex justify-between items-center">
-                    <div className="flex gap-1">
-                      {[...Array(12)].map((_, i) => (
-                        <div key={i} className="w-1 h-6 bg-foreground/30 rounded" 
-                          style={{ height: `${14 + Math.random() * 12}px` }} 
-                        />
-                      ))}
-                    </div>
-                    <div className="w-12 h-12 rounded-lg bg-foreground/10 grid grid-cols-4 gap-[2px] p-1">
-                      {[...Array(16)].map((_, i) => (
-                        <div key={i} className={`rounded-[1px] ${Math.random() > 0.5 ? 'bg-foreground/40' : 'bg-transparent'}`} />
-                      ))}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Secondary cards */}
-              <div className="absolute -bottom-8 -left-8 glass-light rounded-xl p-4 transform -rotate-6 opacity-80">
-                <div className="w-32 h-20 rounded-lg bg-gradient-to-br from-success/20 to-success/5 flex items-center justify-center">
-                  <Check className="w-8 h-8 text-success" />
-                </div>
-              </div>
-              <div className="absolute -top-4 -right-4 glass-light rounded-xl p-4 transform rotate-12 opacity-80">
-                <div className="w-28 h-18 rounded-lg bg-gradient-to-br from-warning/20 to-warning/5 flex items-center justify-center">
-                  <CreditCard className="w-8 h-8 text-warning" />
-                </div>
-              </div>
+            <div className="text-sm">
+              <span className="text-foreground font-semibold">500+ organizations</span>
+              <span className="text-muted-foreground"> trust Smart ID Global</span>
             </div>
           </div>
         </div>
@@ -212,7 +187,7 @@ export default function Landing() {
               Everything You Need
             </h2>
             <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              From photo capture to print-ready cards, SAGS handles the entire workflow automatically.
+              From photo capture to print-ready cards, Smart ID Global handles the entire workflow automatically.
             </p>
           </div>
 
@@ -236,6 +211,63 @@ export default function Landing() {
         </div>
       </section>
 
+      {/* Pricing */}
+      <section id="pricing" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-bold mb-4 font-display">
+              Simple, Transparent Pricing
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+              Choose a plan that fits your organization. Upgrade anytime as you grow.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {plans.map((plan) => (
+              <div 
+                key={plan.name}
+                className={cn(
+                  "relative glass-light rounded-2xl p-8 border transition-all duration-300 hover:scale-105",
+                  plan.popular 
+                    ? "border-primary/50 shadow-glow" 
+                    : "border-border/30 hover:border-primary/20"
+                )}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-primary text-primary-foreground text-xs font-semibold flex items-center gap-1">
+                    <Star className="w-3 h-3" /> Most Popular
+                  </div>
+                )}
+                <h3 className="text-2xl font-bold mb-1">{plan.name}</h3>
+                <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
+                <div className="mb-6">
+                  <span className="text-4xl font-bold">{plan.price}</span>
+                  <span className="text-muted-foreground">{plan.period}</span>
+                </div>
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((f) => (
+                    <li key={f} className="flex items-center gap-2 text-sm">
+                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
+                      <span className="text-muted-foreground">{f}</span>
+                    </li>
+                  ))}
+                </ul>
+                <Button 
+                  className={cn("w-full", plan.popular && "glow-primary")} 
+                  variant={plan.popular ? "default" : "outline"}
+                  asChild
+                >
+                  <Link to="/dashboard">
+                    {plan.price === 'Custom' ? 'Contact Sales' : 'Get Started'}
+                  </Link>
+                </Button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* CTA Section */}
       <section className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
@@ -247,7 +279,7 @@ export default function Landing() {
                 Ready to Get Started?
               </h2>
               <p className="text-xl text-muted-foreground mb-8 max-w-xl mx-auto">
-                Join hundreds of organizations using SAGS to streamline their ID card creation process.
+                Join hundreds of organizations using Smart ID Global to streamline their ID card creation process.
               </p>
               <Button size="lg" className="glow-primary text-lg h-14 px-10" asChild>
                 <Link to="/dashboard">
@@ -265,7 +297,7 @@ export default function Landing() {
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
           <Logo size="sm" />
           <p className="text-muted-foreground text-sm">
-            © 2024 SAGS. Smart Automatic Generation System. All rights reserved.
+            © 2024 Smart ID Global. All rights reserved.
           </p>
         </div>
       </footer>

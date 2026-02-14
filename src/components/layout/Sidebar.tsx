@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { cn } from '@/lib/utils';
+import { Logo } from '@/components/Logo';
 import { 
   LayoutDashboard, 
   Building2, 
@@ -41,17 +42,7 @@ export function Sidebar({ currentPage, onNavigate }: SidebarProps) {
     >
       {/* Logo */}
       <div className="h-16 flex items-center px-4 border-b border-sidebar-border">
-        <div className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-lg bg-primary flex items-center justify-center glow-primary">
-            <Zap className="w-5 h-5 text-primary-foreground" />
-          </div>
-          {!collapsed && (
-            <div className="animate-fade-in">
-              <h1 className="font-bold text-lg text-foreground">SAGS</h1>
-              <p className="text-[10px] text-muted-foreground -mt-1">Smart Card System</p>
-            </div>
-          )}
-        </div>
+        <Logo size="sm" showText={!collapsed} />
       </div>
 
       {/* Navigation */}
